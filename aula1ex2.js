@@ -1,0 +1,14 @@
+var var1=3;
+var var2=4;
+var soma=0;
+var subtração=0;
+var divisao = 0;
+var multiplicação = 0;
+soma=var1+var2;
+console.log(soma);
+subtração=var1-var2;
+console.log(subtração);
+divisao=var1/var2;
+console.log(divisao);
+multiplicação=var1*var2;
+console.log(multiplicação);
