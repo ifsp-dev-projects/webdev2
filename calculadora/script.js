@@ -1,75 +1,72 @@
+alert("Seja bem-vindo!"); //aparece na janela 
+console.log("oi")
 
-const tela = document.getElementById("tela");
-const numeros = document.querySelectorAll(".numero");
-const operadores = document.querySelectorAll(".operador");
-const igual = document.querySelector(".igual");
-const limpar = document.querySelector(".limpar");
+let entrada = ""; //variavel q vai guardar a entrrada do usuario
 
-let a = null;
-let b = null;
-let operador = null;
+//arrow function
+let subtrair = (numeros) => numeros.reduce((a, b) => a - b); // reduce "reduz" o array a um elemento so, ent da p ter vasrias entradas, aq ele ta subtraindo td do array numeros
+let somar = (numeros) => numeros.reduce((a, b) => a + b);
+let dividir = (numeros) => numeros.reduce((a, b) => a / b);
+let multiplicar = (numeros) => numeros.reduce((a, b) => a * b);
 
-numeros.forEach(botao => {
-    botao.addEventListener("click", () => adicionarNumero(botao.textContent));
-});
+//funcao anonima
+const mostrarMenu = function() {
+    return prompt(
+        "Escolha uma operação:\n" +
+        "1- somar\n" +
+        "2- subtrair\n" +
+        "3- multiplicar\n" +
+        "4- dividir\n" +
+        "5- sair"
+    );
+};
 
-operadores.forEach(botao => {
-    botao.addEventListener("click", () => definirOperador(botao.textContent));
-});
 
-operadores.forEach(botao => {
-    botao.addEventListener("click", () => definirOperador(botao.textContent));
-});
-
-// Executa a operação ao clicar em "="
-igual.addEventListener("click", calcular);
-
-// Limpa tudo
-limpar.addEventListener("click", resetar);
-
-// Funções simples
-function adicionarNumero(valor) {
-    tela.value += valor;
+//parametro default
+function mensagemFinal(texto = "Obrigado por usar a calculadora. Até logo!") {
+    alert(texto);
 }
 
-function definirOperador(op) {
-    a = parseFloat(tela.value);
-    operador = op;
-    tela.value = "";
-}
+//laço de repetição
+while (entrada !== "sair") {
+   entrada= mostrarMenu()
+//switch case
+    switch (entrada) {
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+            let valores = prompt("Digite os números separados por espaço:") //pede os numeros e armazena em valores
+                .split(" ") //separa a string em um array, qubrando onde tiver espaço, yipo 2 4 5 vira ["2", "4", "5"]
+                .map(Number); //converte as strings de entrada em numeros, tipo o int input do python
 
-function calcular() {
-    b = parseFloat(tela.value);
-    let resultado;
+            if (valores.some(isNaN) || valores.length < 2) { //verifica se a entrada so tem numeros e se tem mais de 1
+                alert("Por favor, digite pelo menos dois números válidos."); 
+                break;
+            }
 
-    if (operador === "+") resultado = somar(a, b);
-    else if (operador === "-") resultado = subtrair(a, b);
-    else if (operador === "*") resultado = multiplicar(a, b);
-    else if (operador === "/") resultado = dividir(a, b);
-    else resultado = "Erro";
+            let resultado; //variavel p guardar o resultado da operçaão
 
-    tela.value = resultado;
-}
+            if (entrada === "1") resultado = somar(valores);
+            if (entrada === "2") resultado = subtrair(valores);
+            if (entrada === "3") resultado = multiplicar(valores);
+            // verifica qual foi a entrada e chama a respectiva função atribuindo a entrada dos numeros
+            if (entrada === "4") {
+                if (valores.slice(1).includes(0)) {
+                    alert("Não é possível dividir por zero.");
+                    break; //verifica se algm numero dps do primeiro é 0
+                }
+                resultado = dividir(valores);
+            }
 
-function somar(x, y) {
-    return x + y;
-}
+            alert(`O resultado é: ${resultado}`);
+            break;
 
-function subtrair(x, y) {
-    return x - y;
-}
+        case "5":
+            mensagemFinal();
+            break;
 
-function multiplicar(x, y) {
-    return x * y;
-}
-
-function dividir(x, y) {
-    return y === 0 ? "Erro" : x / y;
-}
-
-function resetar() {
-    tela.value = "";
-    a = null;
-    b = null;
-    operador = null;
+        default:
+            alert("Operação inválida! Tente novamente.");
+    }
 }
