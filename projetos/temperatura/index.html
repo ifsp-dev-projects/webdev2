@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de temperaturas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="conteiner">
+        <p id="titulo">Conversor de temperaturas</p>
+        <input type="text" id="entrada" placeholder="Digite uma temperatura em graus Celsius" oninput="validartemperatura()" autocomplete="off">
+        <div class="saidas">
+            <p id="f">F: 0º</p>
+        </div>
+        <div class="saidas">
+            <p id="k">K: 0</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
