@@ -2,11 +2,50 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Calculadora Interativa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora </title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body bgcolor="black">
-  <script src="script.js"></script>
+<body>
+    <div class="conteiner">
+        <input type="text" id="entrada" autocomplete="off">
+
+        <div class="linha">
+            <button class="numero"onclick="adicionar('7')">7</button>
+            <button class="numero"onclick="adicionar('8')">8</button>
+            <button class="numero"onclick="adicionar('9')">9</button>
+            <button onclick="definirOperador('/')" class="operador">/</button>
+        </div>
+
+        <div class="linha">
+            <button class="numero"onclick="adicionar('4')">4</button>
+            <button class="numero"onclick="adicionar('5')">5</button>
+            <button class="numero" onclick="adicionar('6')">6</button>
+            <button onclick="definirOperador('*')" class="operador">*</button>
+        </div>
+
+        <div class="linha">
+            <button class="numero" onclick="adicionar('1')">1</button>
+            <button class="numero"onclick="adicionar('2')">2</button>
+            <button class="numero"onclick="adicionar('3')">3</button>
+            <button onclick="definirOperador('-')"class="operador">-</button>
+        </div>
+
+        <div class="linha">
+            <button class="numero"onclick="adicionar('0')">0</button>
+            <button class="numero" onclick="adicionar('.')">.</button>
+            <button onclick="calcular()"class="operador">=</button>
+            <button onclick="definirOperador('+')" class="operador">+</button>
+        </div>
+
+        <div class="linha">
+            <button style="flex: 1;" onclick="limpar()">C</button>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>

@@ -1,4 +1,4 @@
-const quaseArray = {0:'Rafael', 1: 'Ana', 2:'Bia'}
+const quaseArray = {0:'Rafael', 1: 'Ana', 2:'Bia'} // isso é um objeto
 console.log(quaseArray)
 
 Object.defineProperty(quaseArray, 'toString', {
