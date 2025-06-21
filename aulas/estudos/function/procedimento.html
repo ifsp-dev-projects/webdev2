@@ -1,0 +1,31 @@
+<!--
+sub-rotinas do tipo procedimento são um bloco de código que executa uma tarefa específica, mas não retorna nenhum valor.
+Um procedimento em JavaScript pode ser uma função
+que executa uma ação sem retornar um valor. 
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de procedimento</title>
+    <style>
+        #mensagem{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="mensagem"> Olá, Mundo!</h1>
+    <button onclick="alterarEstilo()">Alterar Estilo</button>
+    
+    <script>
+        function alterarEstilo(){
+            let mensagem = document.getElementById('mensagem')
+            mensagem.style.color="green"
+            mensagem.style.fontSize="24px"            
+        }
+        //é uma sub-rotina do tipo procedimento pq ela n devolve nenhum valor, msm assim, no js ela continua sendo chamada de função
+    </script>
+</body>
+</html>
