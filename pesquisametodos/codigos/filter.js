@@ -17,7 +17,9 @@ const users = [
     { name: "Kenji", age: 19, active: true }
 ];
 
-const validUsers = users.filter(user => user.active && user.age >= 18);
+const validUsers = users.filter(
+    user => user.active && user.age >= 18
+);
 
 console.log("Usuários ativos e maiores de idade:");
 validUsers.forEach(({ name, age }, index) => {

@@ -7,7 +7,14 @@ console.log("Soma total dos números:");
 console.log(total);
 
 //codigo elaborado
-const words = ["maçã", "banana", "maçã", "laranja", "banana", "maçã"];
+const words = [
+    "maçã", 
+    "banana", 
+    "maçã", 
+    "laranja",
+    "banana", 
+    "maçã"
+];
 
 const wordCount = words.reduce((accumulator, word) => {
     if (accumulator[word]) {
