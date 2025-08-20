@@ -6,13 +6,31 @@
     <title>Adivinhe o número</title>
 </head>
 <body>
-    <input type="number" id="input_number">
-    <button onclick="adivinhe()" id="button">QWERTYIO</button>
+    <form id="game_play">
+        <input type="text" id="input_number">
+        <!-- Must only run in chrome and firefox -->
+        <input type="submit" style="display: none"> 
+    </form>
+
+    <!-- Control button games
+    <button onclick="game_init()">Init game</button>
+
+    <button onclick="game_move('guess')" id="button">Move</button>
+
+    <button onclick="game_end()">END game</button>
+    -->
 
     <h2>Output</h2>
     <div id="output">
+        <div style="display: flex;">
+            <h3 style="margin: 16px 0px 16px 0px;">Remain steps: </h3>
+            <p id="output_steps">0</p>
+        </div>
+
+        <p id="output_number"></p>
     </div>
 
-    <script src="./script.js"></script>
-</script></body>
+    <script src="./src/script.js"></script>
+    <script src="./src/submit.js"></script>
+</body>
 </html>
