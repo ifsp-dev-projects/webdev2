@@ -128,3 +128,13 @@ function number_guess(){
 
     SIGN_NUMBER=0;
 }
+
+/* adicionar: mostrar na página que deve ser entre 0 e 20;
+bloquear tentativas fora dessa faixa
+botão de submit (add eventlistener click )
+botão de reset
+botão de start
+botão jogar novamente
+palpites anteriores (acumular todas as tentativas do jogador)
+dividir no documento de acordo com as 4 etapas
+*/
