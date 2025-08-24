@@ -7,52 +7,61 @@ agradável.
 • Testar exaustivamente para encontrar e corrigir possíveis bugs
 */
 
-let NumeroUsuario = document.getElementById("NumeroUsuario");
-let mensagem = document.getElementById("mensagem");
-let mensagem2 = document.getElementById("mensagem2");
-let mensagem3 = document.getElementById("mensagem3");
-let exibirstart = document.getElementById("start");
-let gamewon = document.getElementById("gamewon");
-let gameover = document.getElementById("gameover");
-let jogo = document.getElementById("telajg");
-let botao = document.getElementById("button");
-let play = document.getElementById("play");
-let botaorestart = document.getElementById("restart");
-let botaorestart2 = document.getElementById("restart2");
-let entradas = [];
-let lost = false;
+const NumeroUsuario = document.getElementById("NumeroUsuario"); // Input
+
+const mensagem      = document.getElementById("mensagem"); // Round description
+const mensagem2     = document.getElementById("mensagem2"); // All attemps
+const mensagem3     = document.getElementById("mensagem3"); // Remain steps
+
+const exibirstart   = document.getElementById("start");
+const gamewon       = document.getElementById("gamewon");
+const gameover      = document.getElementById("gameover");
+
+const jogo          = document.getElementById("telajg");
+const botao         = document.getElementById("button");
+const play          = document.getElementById("play");
+const forms         = document
+
+const botaorestart  = document.getElementById("restart");
+const botaorestart2 = document.getElementById("restart2");
+
+let entradas    = [];
+let lost    = false;
 let win = false;
 let start = true;
 let loopdojg;
 
-let min = 1;
-let max = 20;
-let maxtentativas = 10;
+let NUMBER_MIN = 1;
+let NUMBER_MAX = 20;
+let ATTEMPTS_MAX = 10;
 
 
-function telajogo() {
+function telaJogo() {
     start = false;
     lost = false;
     win = false;
-    maxtentativas = 10;
+
+    ATTEMPTS_MAX = 10;
     entradas.length = 0;
-    numeroSorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+    NUMBER_GUESS = Math.floor(Math.random() * (NUMBER_MAX - NUMBER_MIN + 1)) + NUMBER_MIN;
+
     exibirstart.classList.add('hidden');
     gameover.classList.add('hidden');
     jogo.classList.remove('hidden');
     gamewon.classList.add('hidden');
+
     exibirMensagem(mensagem, "O número sorteado é: ")
     exibirMensagem(mensagem2, "Seus palpites: ");
     exibirMensagem(mensagem3, "Tentativas restantes: 10")
 
 }
-function telagamewon() {
+function telaGameWon() {
     win = true;
     gamewon.classList.remove('hidden');
     jogo.classList.add('hidden');
 
 }
-function telagameover() {
+function telaGameOver() {
     lost = true;
     gameover.classList.remove('hidden');
     jogo.classList.add('hidden');
@@ -66,23 +75,24 @@ function exibirMensagem(elemento, texto, cor = "black") {
 
 function verificarPalpite() {
     let numero = parseInt(NumeroUsuario.value);
+    NumeroUsuario.value='';
     if (isNaN(numero)) {
         alert("Digite um número entre 1 e 20");
         return;
     }
-    if (numero < min || numero > max) {
-        alert("Digite um número entre 1 e 20");
+    if (numero < NUMBER_MIN || numero > NUMBER_MAX) {
+        exibirMensagem(mensagem, `Por favor, digite um número de ${NUMBER_MIN}-${NUMBER_MAX}`);
     }
-    else if (numero == numeroSorteado) {
+    else if (numero == NUMBER_GUESS) {
         entradas.push(numero);
         win = true;
-        telagamewon();
+        telaGameWon();
     }
-    else if (numero > 0 && numero < numeroSorteado) {
+    else if (numero > 0 && numero < NUMBER_GUESS) {
         exibirMensagem(mensagem, "O número sorteado é: maior!", "orange");
         entradas.push(numero);
     }
-    else if (numero > numeroSorteado) {
+    else if (numero > NUMBER_GUESS) {
         exibirMensagem(mensagem, "O número sorteado é: menor!", "blue");
         entradas.push(numero);
 
@@ -96,13 +106,13 @@ function verificarPalpite() {
 
 
 function tentativas(numero) {
-    let tentativasRestantes = maxtentativas - entradas.length;
+    let tentativasRestantes = ATTEMPTS_MAX - entradas.length;
 
     if (lost || win) return;
 
-    if (entradas.length >= maxtentativas && numero !== numeroSorteado) {
+    if (entradas.length >= ATTEMPTS_MAX && numero !== NUMBER_GUESS) {
         lost = true;
-        telagameover();
+        telaGameOver();
     }
     else if (!win && !lost) {
         exibirMensagem(mensagem3, `Tentativas restantes: ${tentativasRestantes}`)
@@ -110,13 +120,18 @@ function tentativas(numero) {
 }
 
 
-function iniciarjogo() {
+function iniciarJogo() {
     if (win == false && lost == false && start == false) {
         verificarPalpite()
     }
 }
 
-play.addEventListener('click', telajogo);
-botao.addEventListener(`click`, iniciarjogo);
-botaorestart.addEventListener("click", telajogo);
-botaorestart2.addEventListener("click", telajogo);
+play.addEventListener('click',telaJogo);
+botao.addEventListener(`click`, iniciarJogo);
+botaorestart.addEventListener("click", telaJogo);
+botaorestart2.addEventListener("click", telaJogo);
+
+forms.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    teaJogo();
+});
