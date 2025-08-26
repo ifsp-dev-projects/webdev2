@@ -13,6 +13,8 @@
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=WDXL+Lubrifont+TC&display=swap" rel="stylesheet">
+
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -44,18 +46,16 @@
 
         <div id="telajg" class="hidden">
             <h1 class="text">Adivinhe o número</h1>
-            <div id="entrada">
-                <input type="number" autocomplete="off" id="NumeroUsuario" placeholder="Digite um número de 1 a 20">
-                <button id="button">Enviar</button>
-            </div>
-            <p id="mensagem"></p>
-            <p id="mensagem2"></p>
-            <p id="mensagem3"></p>
+            <form>
+                <input type="text" autocomplete="off" id="NumeroUsuario" placeholder="Digite um número de 1 a 20">
+                <button id="button" style="display:hiden;">Enviar</button>
+            </form>
+            <p id="mensagem"></p> <!-- Round description -->
+            <p id="mensagem2"></p> <!-- All attemps -->
+            <p id="mensagem3"></p> <!-- Remain plays --!>
         </div>
 
     </div>
-
-    <script src="script.js"></script>
 </body>
 
 </html>

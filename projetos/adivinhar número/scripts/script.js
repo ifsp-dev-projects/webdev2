@@ -25,7 +25,8 @@ function number_generate(){
 
 function input_valid(){
     INPUT_BOX.value=INPUT_BOX.value.trim();
-    if(!isNaN(INPUT_BOX.valu,)){
+    console.log(INPUT_BOX.value);
+    if(isNaN(INPUT_BOX.value)){
         OUTPUT_BOX.innerHTML="Input invalido, insira outro";
         return 0;
     }
