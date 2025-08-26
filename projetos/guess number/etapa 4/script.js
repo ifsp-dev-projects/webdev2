@@ -11,6 +11,8 @@ let NumeroUsuario = document.getElementById("NumeroUsuario");
 let mensagem = document.getElementById("mensagem");
 let mensagem2 = document.getElementById("mensagem2");
 let mensagem3 = document.getElementById("mensagem3");
+let mensagem4 = document.getElementById("mensagem4");
+let mensagem5 = document.getElementById("mensagem5");
 let exibirstart = document.getElementById("start");
 let gamewon = document.getElementById("gamewon");
 let gameover = document.getElementById("gameover");
@@ -28,6 +30,7 @@ let loopdojg;
 let min = 1;
 let max = 20;
 let maxtentativas = 10;
+let tentativasRestantes;
 
 
 function telajogo() {
@@ -46,16 +49,19 @@ function telajogo() {
     exibirMensagem(mensagem3, "Tentativas restantes: 10")
 
 }
+
 function telagamewon() {
     win = true;
     gamewon.classList.remove('hidden');
     jogo.classList.add('hidden');
+    exibirMensagem(mensagem4, `O numero sorteado foi ${numeroSorteado}, você venceu com ${entradas.length} tentativa(s)`)
 
 }
 function telagameover() {
     lost = true;
     gameover.classList.remove('hidden');
     jogo.classList.add('hidden');
+    exibirMensagem(mensagem5, `O numero sorteado foi ${numeroSorteado}`)
 }
 
 
