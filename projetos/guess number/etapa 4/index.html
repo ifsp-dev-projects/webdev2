@@ -13,8 +13,6 @@
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=WDXL+Lubrifont+TC&display=swap" rel="stylesheet">
-
-    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -30,32 +28,33 @@
 
         <div id="gamewon" class="hidden">
             <h2 class="text">Você venceu o jogo!</h2>
-            <p id="mensagem4"></p>
+            <p>Jogue Novamente</p>
             <img src="https://imgs.search.brave.com/GW14IcAnbK_IGltHq2b6xM2HZLC0DOeGUQjRuQpfHXA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS12ZWN0/b3IvcGxheS1idXR0/b24taWNvbi1mbGF0/LXN0eWxlLW1lZGlh/LXBsYXllci12ZWN0/b3ItaWxsdXN0cmF0/aW9uLWlzb2xhdGVk/LWJhY2tncm91bmQt/dmlkZW8tc2lnbi1i/dXNpbmVzcy1jb25j/ZXB0XzE1Nzk0My0x/NTAzNy5qcGc_c2Vt/dD1haXNfaHlicmlk/Jnc9NzQwJnE9ODA"
                 id="restart2"></img>
-            <p>Jogue Novamente</p>
         </div>
 
         <div id="gameover" class="hidden">
             <h2 class="text">Que pena! Não foi dessa vez :(</h2>
-            <p id="mensagem5"></p>
+            <p>Jogue Novamente</p>
+
             <img src="https://imgs.search.brave.com/GW14IcAnbK_IGltHq2b6xM2HZLC0DOeGUQjRuQpfHXA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS12ZWN0/b3IvcGxheS1idXR0/b24taWNvbi1mbGF0/LXN0eWxlLW1lZGlh/LXBsYXllci12ZWN0/b3ItaWxsdXN0cmF0/aW9uLWlzb2xhdGVk/LWJhY2tncm91bmQt/dmlkZW8tc2lnbi1i/dXNpbmVzcy1jb25j/ZXB0XzE1Nzk0My0x/NTAzNy5qcGc_c2Vt/dD1haXNfaHlicmlk/Jnc9NzQwJnE9ODA"
                 id="restart"></img>
-            <p>Jogue Novamente</p>
         </div>
 
         <div id="telajg" class="hidden">
             <h1 class="text">Adivinhe o número</h1>
-            <form>
-                <input type="text" autocomplete="off" id="NumeroUsuario" placeholder="Digite um número de 1 a 20">
-                <button id="button" style="display:hiden;">Enviar</button>
-            </form>
-            <p id="mensagem"></p> <!-- Round description -->
-            <p id="mensagem2"></p> <!-- All attemps -->
-            <p id="mensagem3"></p> <!-- Remain plays --!>
+            <div id="entrada">
+                <input type="number" autocomplete="off" id="NumeroUsuario" placeholder="Digite um número de 1 a 20">
+                <button id="button">Enviar</button>
+            </div>
+            <p id="mensagem"></p>
+            <p id="mensagem2"></p>
+            <p id="mensagem3"></p>
         </div>
 
     </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -37,5 +37,7 @@ class Carro {
 
 }
 
-const meuCarro=new Carro ('Toyota', 'Corolla', 2020) //criand o mwu objeto
-console.log(meuCarro.detalhesCarro())
+const carros=[
+    new Carro ('Toyota', 'Corolla', 2020) //criand o mwu objeto
+]
+console.log(carros[0].detalhesCarro())
